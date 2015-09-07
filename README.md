@@ -42,81 +42,21 @@ Point myPoint;            // Calls Point::Point()
 Point myOtherPoint(5, 3); // Calls two-argument constructor Point::Point(double, double)
 ```
 
-### Your Task
+### Changes
 
-2.  The <tt>Point</tt> class was cahnged to represent points in three dimensions.
+2.  The <tt>Point</tt> class was changed to represent points in three dimensions.
 
-3.  New member function called <tt>distanceTo</tt> was added to <tt>Point</tt>. It accepts as an argument a <u><tt>Point &</tt></u> (a reference to a <tt>Point</tt>), and it return a <tt>double</tt> that approximates the distance between the two points.
+3.  New member function <tt>distanceTo</tt> was added to <tt>Point</tt>. It accepts as an argument a <u><tt>Point &</tt></u> (a reference to a <tt>Point</tt>), and it returns a <tt>double</tt> that approximates the distance between the two points.
 
 4.  Created a new source file <tt>pa1.cpp</tt> and implement two functions:
 
 *   <tt>double computeArea(Point &a, Point &b, Point &c)</tt>
 
-which takes by reference three <tt>Point</tt> objects, computes the area within the triangle defined by these points. It uses Heron's formula to compute semiperimeter and area of a triangle
+which takes by reference three <tt>Point</tt> objects, computes the area within the triangle defined by these points. It uses Heron's formula to compute semiperimeter and area of a triangle.
 
 *   <tt>int main()</tt>
 
 which requests three points (nine coordinates) from the user, determines the area inside the triangle described by the three points using the aforementioned function, and displays the result.
-
-In C++, you don't have to declare all variables at the top of a block; you can intermingle variable declarations and statements of code. So, you should only need to use three <tt>double</tt> variables to input the coordinates, and then create each <tt>Point</tt> along the way.
-
-**Don't worry about dealing with bad user input.** For now, you can follow the oft-used program behavior: "Garbage in, garbage out!"
-
-5.  Compile these sources together like so:
-
-```
-g++ -Wall lab1.cpp Point.cpp -o pa1
-```
-
-Note:
-*   <tt>g++</tt> is the GNU C++ compiler.
-*   <tt>-Wall</tt> means "output ALL warnings." (If you see any warnings, be sure to fix them.)
-*   Next comes the list of source files. (You don't list header files here. They are included by the source files.) The only new part here is that we have _two_ files: <tt>lab1.cc</tt> and <tt>Point.cc</tt>.
-*   <tt>-o</tt> specifies the output file. In this case, we are making a program called <tt>lab1</tt>.
-
-CLion uses CMake to create a makefile for your architecture. It uses the directives in the CMakeLists.txt file which can be found in your project's directory. The file looks like this
-
-```
-cmake_minimum_required(VERSION 3.2)
-project(pa1)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-set(SOURCE_FILES Point.cpp PA1.cpp)
-add_executable(pa1 ${SOURCE_FILES})
-```
-
-For this project, all you need to do to run your Point code on CLion is to list all your *.cpp files as shown above.
-
-6.  Run the generated program:
-
-```
-./pa1
-```
-
-In CLion, you first have to build (Run-->Build) and then run (Run-->Run 'PA1') your project. Any output will appear in the built-in console.
-
-7.  Go back and test <tt>computeArea</tt> with several boundary and/or extreme cases to make sure your implementation is robust for all triangles, including degenerate ones. Things you might try:
-
-*   Triangles with no area - all three points on the same line
-*   Triangles where two points are the same
-*   Triangles where all three points are the same
-*   Triangles with negative coordinate values
-*   etc.
-
-In software-engineering parlance, these degenerate cases are called "edge cases" or "corner cases," because they test combinations of inputs that may be rare, but still possible. Usually, you want to start out by seeing if your program can handle simple cases that will expose obvious issues. Once your program can handle these, then you move on to the more subtle test scenarios.
-
-8.  Update the README.md file in your local repository with a description of your 3D Point class. You can use this file as a guide.
-
-9.  Commit all code changes to your local Github repository, then push the changes to the master repository on Github.
-
-10. Submit the URL of your CSCI 2312 repository on Canvas.
-
-### Grading
-
-An autograding script will test your class on a variety of inputs and assign a grade based on the number of correct outputs. (E.g. if you get 3 out of 6 test cases correct, your correctness score will be 50%). The correctness score will count for 67% of your overall grade. In addition, your code will be evaluated for style (comments, separate h and cpp files, etc). We will say more about style in lecture. Style will be evaluated on a three-point system (1-bad, 2-ok, 3-excellent) and the style grade will count for the remaining 33% of your grade. 
-
-* * *
 
 <font size="-1">ACKNOWLEDGEMENT: Modelled after CS11 Lab 1 at Caltech.</font>
 
