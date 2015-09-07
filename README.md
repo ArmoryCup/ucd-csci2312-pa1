@@ -44,29 +44,15 @@ Point myOtherPoint(5, 3); // Calls two-argument constructor Point::Point(double,
 
 ### Your Task
 
-1.  Fork the [Github repository for CSCI 2312 PA1](https://github.com/ivogeorg/ucd-csci2312-pa1). Then clone it to your local development environment (e.g. laptop). You will find the Point.h and Point.cpp files for the 2D Point class, along with a skeleton driver file pa1.cpp with barely any code in it.
+2.  The <tt>Point</tt> class was cahnged to represent points in three dimensions.
 
-2.  Change the <tt>Point</tt> class to represent points in three dimensions. Make sure to update the comments to match this change!
+3.  New member function called <tt>distanceTo</tt> was added to <tt>Point</tt>. It accepts as an argument a <u><tt>Point &</tt></u> (a reference to a <tt>Point</tt>), and it return a <tt>double</tt> that approximates the distance between the two points.
 
-3.  Add a new member function to <tt>Point</tt> called <tt>distanceTo</tt>. This member function should accept as an argument a <u><tt>Point &</tt></u> (a reference to a <tt>Point</tt>), and it should return a <tt>double</tt> that approximates the distance between the two points.
-
-You will probably find a square-root function useful for this! The C standard library has one, called <tt>sqrt()</tt>. The function takes a double and returns another double.
-
-If you were programming in C, you would
-```c++
-#include <math.h>
-```
-but in C++ you say
-```c++
-#include <cmath>
-```
-(This means, "Include the C Math header.") And then you are all set.
-
-4.  Create a new source file <tt>pa1.cpp</tt> and implement two functions:
+4.  Created a new source file <tt>pa1.cpp</tt> and implement two functions:
 
 *   <tt>double computeArea(Point &a, Point &b, Point &c)</tt>
 
-which takes by reference three <tt>Point</tt> objects, computes the area within the triangle defined by these points (hint: use [Heron's Formula](http://en.wikipedia.org/wiki/Heron%27s_formula)), and returns it as a double-precision floating point number.
+which takes by reference three <tt>Point</tt> objects, computes the area within the triangle defined by these points. It uses Heron's formula to compute semiperimeter and area of a triangle
 
 *   <tt>int main()</tt>
 
